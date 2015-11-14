@@ -7,7 +7,8 @@ export default {
       home: 'Home',
       login: 'Login',
       me: 'Me (protected)',
-      todos: 'Todos'
+      todos: 'Todos',
+      othello: 'Othello'
     }
   },
   auth: {
@@ -95,5 +96,9 @@ export default {
   },
   settings: {
     title: 'Settings'
+  },
+  othello: {
+    title:'Othello',
+    player: 'Player',
   }
 };
