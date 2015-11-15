@@ -17,23 +17,21 @@ export default class Board extends Component {
 
     return (
         <div className="othello-board">
+          <div className="pure-g">
             {boardState.map((row, r)=>{
-              return (
-                <div className="othello-row" key={`row_${r}`} >
-                {row.map((col, c) => {
-                  return (
-                    <Tile column={c}
-                          isEmpty={col === ''}
-                          key={`cell_${r}_${c}`}
-                          owner={col}
-                          row={r}
-                          tileSelected={tileSelected}
-                          />
-                  );
-                })}
-              </div>
-            );
+              return row.map((col, c) => {
+                return (
+                  <Tile column={c}
+                        isEmpty={col === ''}
+                        key={`cell_${r}_${c}`}
+                        owner={col}
+                        row={r}
+                        tileSelected={tileSelected}
+                        />
+                );
+              });
             })}
+          </div>
         </div>
     );
   }

@@ -27,10 +27,16 @@ export default class Othello extends Component {
     return (
       <DocumentTitle title={msg.title}>
         <div className="othello-page">
-          <h1>{msg.title}</h1>
+          <h2>{msg.title}</h2>
+          <div className="pure-g">
+            <div className="pure-u-1-2">
+              <Player color="red" msg={msg} name="Bob" playerNumber="1" />
+            </div>
+            <div className="pure-u-1-2">
+              <Player color="blue" msg={msg} name="Jane" playerNumber="2" />
+            </div>
+          </div>
           <Board boardState={board.toJS()} tileSelected={(r, c)=>{this.selectTile(r, c);}} />
-          <Player color="red" msg={msg} name="Bob" playerNumber="1" />
-          <Player color="blue" msg={msg} name="Jane" playerNumber="2" />
         </div>
       </DocumentTitle>
     );

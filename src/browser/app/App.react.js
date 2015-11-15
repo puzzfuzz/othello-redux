@@ -30,7 +30,10 @@ export default class App extends Component {
       <div className="page" data-pathname={pathname}>
         {/* Pathname enforces rerender so activeClassName is updated. */}
         <Header msg={msg} pathname={pathname} viewer={viewer} />
-        <RouterHandler {...this.props} />
+        {/* Global responsive layout for page content. */}
+        <div className="content" >
+          <RouterHandler {...this.props} />
+        </div>
         <Footer msg={msg.app.footer} />
       </div>
     );

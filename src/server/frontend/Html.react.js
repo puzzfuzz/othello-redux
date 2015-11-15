@@ -37,6 +37,8 @@ ga('create', '${googleAnalyticsId}', 'auto'); ga('send', 'pageview');`}}
         <head>
           <meta charSet="utf-8" />
           <meta content="width=device-width, initial-scale=1" name="viewport" />
+          <link href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css" rel="stylesheet" />
+          <link href="http://yui.yahooapis.com/pure/0.6.0/grids-responsive-min.css" rel="stylesheet" />
           <title>{title}</title>
           {linkStyles}
           {analytics}

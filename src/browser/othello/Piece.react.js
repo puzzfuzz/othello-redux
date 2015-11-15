@@ -5,14 +5,15 @@ import React, {PropTypes} from 'react';
 export default class Tile extends Component {
 
   static propTypes = {
+    isEmpty: PropTypes.bool.isRequired,
     owner: PropTypes.string.isRequired
   }
 
   render() {
-    const {owner} = this.props;
+    const {isEmpty, owner} = this.props;
 
     return (
-        <div className={`piece ${owner}`} />
+        <div className={`piece ${owner} ${isEmpty ? 'empty' : ''}`} />
     );
   }
 }

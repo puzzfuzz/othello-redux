@@ -14,17 +14,15 @@ export default class Header extends Component {
     const {msg: {app: {links: msg}}, viewer} = this.props;
 
     return (
-      <header>
-        <h1>
-          <Link to="/">{msg.home}</Link>
-        </h1>
-        <ul>
-          <li><Link activeClassName="active" to="/todos">{msg.todos}</Link></li>
-          <li><Link activeClassName="active" to="/me">{msg.me}</Link></li>
+      <header className="pure-menu pure-menu-horizontal">
+        <Link className="pure-menu-heading pure-menu-link" to="/"><h3>{msg.home}</h3></Link>
+        <ul className="pure-menu-list">
+          <li className="pure-menu-item"><Link activeClassName="active" className="pure-menu-link" to="/todos">{msg.todos}</Link></li>
+          <li className="pure-menu-item"><Link activeClassName="active" className="pure-menu-link" to="/me">{msg.me}</Link></li>
           {!viewer &&
-            <li><Link activeClassName="active" to="/login">{msg.login}</Link></li>
+            <li className="pure-menu-item" ><Link activeClassName="active" className="pure-menu-link" to="/login">{msg.login}</Link></li>
           }
-          <li><Link activeClassName="active" to="/othello">{msg.othello}</Link></li>
+          <li className="pure-menu-item"><Link activeClassName="active" className="pure-menu-link" to="/othello">{msg.othello}</Link></li>
         </ul>
       </header>
     );

@@ -1,4 +1,4 @@
-@import '../common/Group'
+@import '../styl/Group'
 
 .bordered
   border-style solid
@@ -8,31 +8,26 @@
 
 .othello-board
 
-  .othello-row
-    @extend .group:after
+  .othello-tile
+    @extend .bordered
+    position relative
+    border-width 1px
 
-    &:nth-of-type(1)
-      @extend .bordered
-      border-top-width 1px
+    padding-bottom 100%
 
+    .piece
+      position absolute
+      top 0
+      bottom 0
+      left 0
+      right 0
 
-    .othello-tile
-      @extend .bordered
-      border-width 0 1px 1px 0
-      &:nth-of-type(1)
-        border-left-width 1px
+      width 80%
+      height @width
+      border-radius 50%
+      margin auto
 
-      float left
-      width 50px
-      height 50px
-
-      .piece
-        height 40px
-        width 40px
-        border-radius 50%
-        margin 5px
-
-        &.red
-          background-color red
-        &.blue
-          background-color blue
+      &.red
+        background-color red
+      &.blue
+        background-color blue

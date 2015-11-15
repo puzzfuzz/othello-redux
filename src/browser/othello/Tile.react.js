@@ -27,10 +27,10 @@ export default class Tile extends Component {
     const {isEmpty, owner} = this.props;
 
     return (
-      <div className="othello-tile" onClick={()=>this.tileClicked()} >
-        {!isEmpty && (
-          <Piece owner={owner} />
-        )}
+      <div className="pure-u-1-8" onClick={()=>this.tileClicked()} >
+        <div className="othello-tile">
+          <Piece isEmpty={isEmpty} owner={owner} />
+        </div>
       </div>
     );
   }

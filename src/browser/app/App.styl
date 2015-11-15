@@ -1,6 +1,7 @@
 // Remember to use rems and ems. http://css-tricks.com/rems-ems.
 
 @import '../../../node_modules/normalize.css/normalize.css'
+@import '../styl/Colors'
 
 // http://phonegap-tips.com/articles/essential-phonegap-css-webkit-tap-highlight-color.html
 *
@@ -16,17 +17,20 @@ body
 
 body {
   color #333
-  font-family 'Segoe UI', 'Lucida Grande','Ubuntu','sans-serif'
   font-size 16px
   line-height 1.5
 }
 
-#app
-  margin 1em 2em
+html, button, input, select, textarea, .pure-g [class *= "pure-u"] {
+    font-family 'Segoe UI', 'Lucida Grande','Ubuntu','sans-serif'
+}
 
-  > header
-    h1
-      margin-bottom 0
+#app
+
+  header
+    background-color $gray-darker
+    color white
+
     ul
       li
         font-size 1em
@@ -39,13 +43,14 @@ body {
     outline-style none
 
   a
-    color #346392
+    color $gray-light
     text-decoration none
 
     &:hover:not(.active)
-      text-decoration underline
+      color $brand-white
 
     &.active
+      color $brand-primary
       font-weight bold
 
   button
@@ -78,3 +83,11 @@ body {
 
   p, li
     max-width 42em
+
+  .content
+    padding 20px
+    @media screen and (min-width: 768px)
+      margin auto
+      max-width 728px
+
+@import '../styl/Vendor'
