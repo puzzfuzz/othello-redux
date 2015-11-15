@@ -7,19 +7,18 @@ if (process.env.IS_BROWSER)
 export default class Othello extends Component {
 
   static propTypes = {
-    color: PropTypes.string.isRequired,
+    isTurn: PropTypes.bool.isRequired,
     msg: PropTypes.object,
-    name: PropTypes.string.isRequired,
-    playerNumber: PropTypes.string.isRequired
+    player: PropTypes.object.isRequired
   }
 
   render() {
-    const {msg, name, color, playerNumber} = this.props;
+    const {msg, isTurn, player: {name, color, id}} = this.props;
 
     return (
-        <div className="othello-player">
-          <h1>{msg.player} {playerNumber}</h1>
-          <h2 style={{color:color}}>{name}</h2>
+        <div className={`othello-player ${isTurn ? 'active' : ''} ${color}`}>
+          <div className="player-header">{msg.player} {id}</div>
+          <div className="player-name">{name}</div>
         </div>
     );
   }

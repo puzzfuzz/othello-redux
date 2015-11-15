@@ -22,7 +22,12 @@ export default class Othello extends Component {
   }
 
   render() {
-    const {msg: {othello: msg}, othello:{board}} = this.props; //player1, player2
+    const {msg: {othello: msg}, othello} = this.props; //player1, player2
+    const _othello = othello.toJS();
+    const {board, players, currentPlayerTurn} = _othello;
+
+    const player1 = players['1'],
+      player2 = players['2'];
 
     return (
       <DocumentTitle title={msg.title}>
@@ -30,13 +35,13 @@ export default class Othello extends Component {
           <h2>{msg.title}</h2>
           <div className="pure-g">
             <div className="pure-u-1-2">
-              <Player color="red" msg={msg} name="Bob" playerNumber="1" />
+              <Player isTurn={currentPlayerTurn === 1} msg={msg} player={player1} />
             </div>
             <div className="pure-u-1-2">
-              <Player color="blue" msg={msg} name="Jane" playerNumber="2" />
+              <Player isTurn={currentPlayerTurn === 2} msg={msg} player={player2} />
             </div>
           </div>
-          <Board boardState={board.toJS()} tileSelected={(r, c)=>{this.selectTile(r, c);}} />
+          <Board boardState={board} tileSelected={(r, c)=>{this.selectTile(r, c);}} />
         </div>
       </DocumentTitle>
     );

@@ -1,4 +1,3 @@
-@import '../styl/Group'
 
 .bordered
   border-style solid
@@ -15,19 +14,4 @@
 
     padding-bottom 100%
 
-    .piece
-      position absolute
-      top 0
-      bottom 0
-      left 0
-      right 0
-
-      width 80%
-      height @width
-      border-radius 50%
-      margin auto
-
-      &.red
-        background-color red
-      &.blue
-        background-color blue
+    @import './_Piece'
