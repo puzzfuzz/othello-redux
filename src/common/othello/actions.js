@@ -8,7 +8,13 @@ export const NEXT_PLAYER_TURN = 'NEXT_PLAYER_TURN';
 export const PLACING_PIECE = 'PLACING_PIECE';
 export const DONE_PLACING_PIECE = 'DONE_PLACING_PIECE';
 export const UPDATE_BOARD = 'UPDATE_BOARD';
+export const INVALID_MOVE = 'INVALID_MOVE';
 
+export function invalidMove() {
+  return {
+    type: INVALID_MOVE
+  };
+}
 
 export function placingPiece() {
   return {
@@ -48,6 +54,9 @@ export function placePiece(row, column) {
       })
       .then(()=>{
         dispatch(nextPlayerTurn(currentPlayerTurn));
+      })
+      .catch(()=>{
+        dispatch(invalidMove);
       })
       .then(()=>{
         dispatch(donePlacingPiece());
