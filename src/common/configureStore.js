@@ -3,6 +3,7 @@ import createLogger from 'redux-logger';
 import fetch from './fetch';
 import injectDependencies from './lib/injectDependencies';
 import promiseMiddleware from 'redux-promise-middleware';
+import thunkMiddleware from 'redux-thunk';
 import stateToJS from './lib/stateToJS';
 import validate from './validate';
 import {applyMiddleware, createStore} from 'redux';
@@ -22,7 +23,8 @@ export default function configureStore({engine, initialState}) {
     dependenciesMiddleware,
     promiseMiddleware({
       promiseTypeSuffixes: ['START', 'SUCCESS', 'ERROR']
-    })
+    }),
+    thunkMiddleware
   ];
 
   // TODO: Add storage example.

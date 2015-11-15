@@ -8,12 +8,12 @@ if (process.env.IS_BROWSER)
 export default class Board extends Component {
 
   static propTypes = {
-    actions: PropTypes.object.isRequired,
-    boardState: PropTypes.arrayOf(PropTypes.array).isRequired
+    boardState: PropTypes.arrayOf(PropTypes.array).isRequired,
+    tileSelected: PropTypes.func.isRequired
   }
 
   render() {
-    const {boardState, actions: {placePiece: actionPlacePiece}} = this.props;
+    const {boardState, tileSelected} = this.props;
 
     return (
         <div className="othello-board">
@@ -22,12 +22,13 @@ export default class Board extends Component {
                 <div className="othello-row" key={`row_${r}`} >
                 {row.map((col, c) => {
                   return (
-                    <Tile actionPlacePiece={actionPlacePiece}
-                          column={c}
+                    <Tile column={c}
                           isEmpty={col === ''}
                           key={`cell_${r}_${c}`}
                           owner={col}
-                          row={r} />
+                          row={r}
+                          tileSelected={tileSelected}
+                          />
                   );
                 })}
               </div>

@@ -6,21 +6,21 @@ import Piece from './Piece.react';
 export default class Tile extends Component {
 
   static propTypes = {
-    actionPlacePiece: PropTypes.func.isRequired,
     column: PropTypes.number.isRequired,
     isEmpty: PropTypes.bool.isRequired,
     owner: PropTypes.string,
-    row: PropTypes.number.isRequired
+    row: PropTypes.number.isRequired,
+    tileSelected: PropTypes.func.isRequired
   }
 
   tileClicked() {
-    const {isEmpty, actionPlacePiece, row, column} = this.props;
+    const {isEmpty, tileSelected, row, column} = this.props;
 
     if (!isEmpty) {
       return;
     }
 
-    actionPlacePiece(row, column);
+    tileSelected(row, column);
   }
 
   render() {
