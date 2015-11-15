@@ -7,9 +7,12 @@ export default class Tile extends Component {
 
   static propTypes = {
     column: PropTypes.number.isRequired,
+    currentPlayerColor: PropTypes.string.isRequired,
+    isCurrentValidMove: PropTypes.bool,
     isEmpty: PropTypes.bool.isRequired,
     owner: PropTypes.string,
     row: PropTypes.number.isRequired,
+    tileHovered: PropTypes.func.isRequired,
     tileSelected: PropTypes.func.isRequired
   }
 
@@ -24,11 +27,13 @@ export default class Tile extends Component {
   }
 
   render() {
-    const {isEmpty, owner} = this.props;
+    const {column, currentPlayerColor, isCurrentValidMove, isEmpty, owner, row, tileHovered} = this.props;
 
     return (
       <div className="pure-u-1-8" onClick={()=>this.tileClicked()} >
-        <div className="othello-tile">
+        <div className={`othello-tile ${isCurrentValidMove ? `valid-move ${currentPlayerColor}` : ''}`}
+            onMouseOver={()=>tileHovered(row, column)}
+            >
           <Piece isEmpty={isEmpty} owner={owner} />
         </div>
       </div>

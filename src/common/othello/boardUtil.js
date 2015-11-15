@@ -89,11 +89,27 @@ function piecesToFlipForDirection(r, c, board, playerColor, dir) {
 
 export function placePieceOnBoard(r, c, board, player) {
   return new Promise((resolve, reject)=>{
+    checkIfMoveIsValid(r, c, board, player)
+      .then(pieces => {
+        board[r][c] = player.color;
+        claimTiles(pieces, board, player.color);
+        resolve(board);
+      })
+      .catch(()=>{
+        reject();
+      });
+  });
+}
+
+export function checkIfMoveIsValid(r, c, board, player) {
+  return new Promise((resolve, reject)=>{
+    if (!isEmpty(board[r][c])) { //if the cell is already occupied, it's not a valid move
+      reject();
+      return;
+    }
     let pieces = piecesToFlipForMove(r, c, board, player.color);
     if (pieces.length) { // A move is only valid if it results in flips
-      board[r][c] = player.color;
-      claimTiles(pieces, board, player.color);
-      resolve(board);
+      resolve(pieces);
     }
     else { // If there are no pieces to flip, reject the handler
       //NOTE: this will throw in Chrome with "Pause on Exceptions" enabled

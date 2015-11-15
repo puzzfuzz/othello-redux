@@ -17,17 +17,28 @@ export default class Othello extends Component {
   }
 
   selectTile(row, column) {
-    const {actions:{placePiece}} = this.props;
+    const {actions:{placePiece}, othello} = this.props;
+    if (othello.get('placingPiece')) {
+      return;
+    }
     placePiece(row, column);
+  }
+
+  tileHovered(row, column) {
+    const {actions:{checkTile}} = this.props;
+
+    checkTile(row, column);
   }
 
   render() {
     const {msg: {othello: msg}, othello} = this.props; //player1, player2
     const _othello = othello.toJS();
-    const {board, players, currentPlayerTurn} = _othello;
+    const {board, players, currentPlayerTurn, validPossibleMove} = _othello;
 
     const player1 = players['1'],
       player2 = players['2'];
+
+    const currentPlayerColor = players[currentPlayerTurn].color;
 
     return (
       <DocumentTitle title={msg.title}>
@@ -41,7 +52,12 @@ export default class Othello extends Component {
               <Player isTurn={currentPlayerTurn === 2} msg={msg} player={player2} />
             </div>
           </div>
-          <Board boardState={board} tileSelected={(r, c)=>{this.selectTile(r, c);}} />
+          <Board boardState={board}
+                currentPlayerColor={currentPlayerColor}
+                tileHovered={(r, c)=>{this.tileHovered(r, c);}}
+                tileSelected={(r, c)=>{this.selectTile(r, c);}}
+                validPossibleMove={validPossibleMove}
+                />
         </div>
       </DocumentTitle>
     );

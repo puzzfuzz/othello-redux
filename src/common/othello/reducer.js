@@ -17,6 +17,7 @@ const InitialState = Record({
   board: Immutable.fromJS(INITIAL_BOARD),
   currentPlayerTurn: 1,
   placingPiece: false,
+  validPossibleMove: null,
   players: {
     1: new Player({
       id: 1,
@@ -49,7 +50,8 @@ export default function othelloReducer(state = initialState, action) {
       break;
     }
     case actions.DONE_PLACING_PIECE: {
-      state = state.set('placingPiece', false);
+      state = state.set('placingPiece', false)
+                   .set('validPossibleMove', null);
       break;
     }
     case actions.UPDATE_BOARD: {
@@ -62,16 +64,15 @@ export default function othelloReducer(state = initialState, action) {
       state = state.set('currentPlayerTurn', otherPlayerId(curPlayerId));
       break;
     }
-    // case actions.PLACE_PIECE: {
-    //   const {row, column} = action.payload;
-    //   const curPlayer = state.get('players').toJS()[state.get('currentPlayerTurn')];
-    //   let board = state.get('board').toJS();
-    //
-    //   board = placePiece(row, column, board, curPlayer);
-    //
-    //   state = state.set('board', Immutable.fromJS(board));
-    // }
-
+    case actions.VALID_POSSIBLE_MOVE: {
+      const {row, column} = action.payload;
+      state = state.set('validPossibleMove', {row, column});
+      break;
+    }
+    case actions.INVALID_MOVE: {
+      state = state.set('validPossibleMove', null);
+      break;
+    }
   }
 
   return state;

@@ -1,17 +1,40 @@
-
-.bordered
-  border-style solid
-  border-color grey
-  border-width 0
-
+@import '../styl/Colors'
 
 .othello-board
+  border-style solid
+  border-color grey
+  border-width 1px
 
   .othello-tile
-    @extend .bordered
     position relative
+    border-style solid
+    border-color grey
     border-width 1px
 
     padding-bottom 100%
 
-    @import './_Piece'
+    &.valid-move
+      &.red
+        box-shadow inset 0 0 20px red
+        border-color red
+      &.blue
+        box-shadow inset 0 0 20px blue
+        border-color blue
+
+    .piece
+      position absolute
+      top 0
+      bottom 0
+      left 0
+      right 0
+
+      width 80%
+      height @width
+      border-radius 50%
+      margin auto
+
+      &.red
+        background-color red
+
+      &.blue
+        background-color blue
