@@ -1,4 +1,4 @@
-import {placePieceOnBoard, checkIfMoveIsValid} from './boardUtil';
+import {placePieceOnBoard, checkIfMoveIsValid, countOwnedCells} from './boardUtil';
 
 //player actions
 export const CREATE_PLAYER = 'CREATE_PLAYER';
@@ -31,9 +31,10 @@ export function donePlacingPiece() {
 }
 
 export function updateBoard(board) {
+  let score = countOwnedCells(board);
   return {
     type: UPDATE_BOARD,
-    payload: {board}
+    payload: {board, score}
   };
 }
 

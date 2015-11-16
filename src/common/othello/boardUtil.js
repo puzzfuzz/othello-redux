@@ -118,3 +118,19 @@ export function checkIfMoveIsValid(r, c, board, player) {
     }
   });
 }
+
+export function countOwnedCells(board) {
+  let score = {
+    '' : 0,
+    'red' : 0,
+    'blue' : 0
+  };
+
+  for (let row of board) {
+    for (let col of row) {
+      score[col]++;
+    }
+  }
+
+  return score;
+}

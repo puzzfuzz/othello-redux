@@ -33,7 +33,7 @@ export default class Othello extends Component {
   render() {
     const {msg: {othello: msg}, othello} = this.props; //player1, player2
     const _othello = othello.toJS();
-    const {board, players, currentPlayerTurn, validPossibleMove} = _othello;
+    const {board, players, currentPlayerTurn, validPossibleMove, score} = _othello;
 
     const player1 = players['1'],
       player2 = players['2'];
@@ -46,10 +46,18 @@ export default class Othello extends Component {
           <h2>{msg.title}</h2>
           <div className="pure-g">
             <div className="pure-u-1-2">
-              <Player isTurn={currentPlayerTurn === 1} msg={msg} player={player1} />
+              <Player isTurn={currentPlayerTurn === player1.id}
+                      msg={msg}
+                      player={player1}
+                      score={score[player1.color]}
+                      />
             </div>
             <div className="pure-u-1-2">
-              <Player isTurn={currentPlayerTurn === 2} msg={msg} player={player2} />
+              <Player isTurn={currentPlayerTurn === player2.id}
+                      msg={msg}
+                      player={player2}
+                      score={score[player2.color]}
+                      />
             </div>
           </div>
           <Board boardState={board}

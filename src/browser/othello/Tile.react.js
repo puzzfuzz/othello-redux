@@ -29,14 +29,26 @@ export default class Tile extends Component {
   render() {
     const {column, currentPlayerColor, isCurrentValidMove, isEmpty, owner, row, tileHovered} = this.props;
 
-    return (
-      <div className="pure-u-1-8" onClick={()=>this.tileClicked()} >
-        <div className={`othello-tile ${isCurrentValidMove ? `valid-move ${currentPlayerColor}` : ''}`}
-            onMouseOver={()=>tileHovered(row, column)}
-            >
-          <Piece isEmpty={isEmpty} owner={owner} />
+    if (isEmpty) {
+      return (
+        <div className="pure-u-1-8" onClick={()=>this.tileClicked()} >
+          <div className={`othello-tile ${isCurrentValidMove ? `valid-move ${currentPlayerColor}` : ''}`}
+              onMouseOver={()=>tileHovered(row, column)}
+              >
+            <Piece isEmpty={isEmpty} owner={owner} />
+          </div>
         </div>
-      </div>
-    );
+      );
+    }
+    else { //Once a tile's claimed, don't bind any listeners.
+      return (
+        <div className="pure-u-1-8" >
+          <div className="othello-tile" >
+            <Piece owner={owner} />
+          </div>
+        </div>
+      );
+    }
+
   }
 }

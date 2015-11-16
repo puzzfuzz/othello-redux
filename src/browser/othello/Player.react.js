@@ -9,15 +9,23 @@ export default class Othello extends Component {
   static propTypes = {
     isTurn: PropTypes.bool.isRequired,
     msg: PropTypes.object,
-    player: PropTypes.object.isRequired
+    player: PropTypes.object.isRequired,
+    score: PropTypes.number.isRequired
   }
 
   render() {
-    const {msg, isTurn, player: {name, color, id}} = this.props;
+    const {msg, isTurn, player: {name, color, id}, score} = this.props;
 
     return (
-        <div className={`othello-player ${isTurn ? 'active' : ''} ${color}`}>
-          <div className="player-header">{msg.player} {id}</div>
+        <div className={`othello-player ${isTurn ? 'active' : ''}`}>
+          <div className="player-header pure-g">
+            <div className={`pure-u-1-1 pure-u-sm-2-3 ${color}`}>
+              {msg.player} {id}
+            </div>
+            <div className="pure-u-1-1 pure-u-sm-1-3">
+              Score: {score}
+            </div>
+          </div>
           <div className="player-name">{name}</div>
         </div>
     );
