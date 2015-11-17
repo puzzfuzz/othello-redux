@@ -10,29 +10,28 @@ export default class Board extends Component {
   static propTypes = {
     boardState: PropTypes.arrayOf(PropTypes.array).isRequired,
     currentPlayerColor: PropTypes.string.isRequired,
-    tileHovered: PropTypes.func.isRequired,
     tileSelected: PropTypes.func.isRequired,
-    validPossibleMove: PropTypes.object
+    validMoves: PropTypes.object
   }
 
   render() {
-    const {boardState, currentPlayerColor, tileHovered, tileSelected, validPossibleMove} = this.props;
+    const {boardState, currentPlayerColor, tileSelected, validMoves} = this.props;
 
     return (
         <div className="othello-board">
           <div className="pure-g">
             {boardState.map((row, r)=>{
               return row.map((col, c) => {
+                const validMove = !!(validMoves && validMoves[r] && validMoves[r][c]);
                 return (
                   <Tile column={c}
                         currentPlayerColor={currentPlayerColor}
-                        isCurrentValidMove={validPossibleMove && validPossibleMove.row === r && validPossibleMove.column === c}
                         isEmpty={col === ''}
                         key={`cell_${r}_${c}`}
                         owner={col}
                         row={r}
-                        tileHovered={tileHovered}
                         tileSelected={tileSelected}
+                        validMove={validMove}
                         />
                 );
               });

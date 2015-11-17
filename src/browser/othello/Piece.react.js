@@ -5,7 +5,7 @@ import React, {PropTypes} from 'react';
 export default class Tile extends Component {
 
   static propTypes = {
-    isEmpty: PropTypes.bool.isRequired,
+    isEmpty: PropTypes.bool,
     owner: PropTypes.string.isRequired
   }
 

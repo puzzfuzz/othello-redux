@@ -1,6 +1,7 @@
 import Immutable, {Record} from 'immutable';
 import Player, {PLAYER_RED, PLAYER_BLUE} from './player';
 import * as actions from './actions';
+import {checkMovesAndScore} from './boardUtil';
 
 const INITIAL_BOARD = [
   ['', '', '', '', '', '', '', ''],
@@ -17,7 +18,7 @@ const InitialState = Record({
   board: Immutable.fromJS(INITIAL_BOARD),
   currentPlayerTurn: 1,
   placingPiece: false,
-  validPossibleMove: null,
+  validMoves: {},
   score: {
     'red': 2,
     'blue': 2,
@@ -42,10 +43,6 @@ function revive(state) {
   return initialState.mergeDeep(state);
 }
 
-function otherPlayerId(playerId) {
-  return playerId === 1 ? 2 : 1;
-}
-
 export default function othelloReducer(state = initialState, action) {
   if (!(state instanceof InitialState)) return revive(state);
 
@@ -55,28 +52,26 @@ export default function othelloReducer(state = initialState, action) {
       break;
     }
     case actions.DONE_PLACING_PIECE: {
-      state = state.set('placingPiece', false)
-                   .set('validPossibleMove', null);
+      state = state.set('placingPiece', false);
       break;
     }
     case actions.UPDATE_BOARD: {
-      const {board, score} = action.payload;
-      state = state.set('board', Immutable.fromJS(board))
-                .set('score', score);
+      const {board} = action.payload;
+      state = state.set('board', Immutable.fromJS(board));
       break;
     }
-    case actions.NEXT_PLAYER_TURN: {
-      const {curPlayerId} = action.payload;
-      state = state.set('currentPlayerTurn', otherPlayerId(curPlayerId));
+    case actions.NEW_PLAYER_TURN: {
+      const {newPlayerId} = action.payload;
+      state = state.set('currentPlayerTurn', newPlayerId);
       break;
     }
-    case actions.VALID_POSSIBLE_MOVE: {
-      const {row, column} = action.payload;
-      state = state.set('validPossibleMove', {row, column});
-      break;
-    }
-    case actions.INVALID_MOVE: {
-      state = state.set('validPossibleMove', null);
+    case actions.UPDATE_MOVES_AND_SCORE: {
+      const {board, players, currentPlayerTurn} = state.toJS();
+      const player = players[currentPlayerTurn];
+      const {score, validMoves} = checkMovesAndScore(board, player);
+
+      state = state.set('score', score)
+                .set('validMoves', validMoves);
       break;
     }
   }

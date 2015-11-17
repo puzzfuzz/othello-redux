@@ -89,34 +89,68 @@ function piecesToFlipForDirection(r, c, board, playerColor, dir) {
 
 export function placePieceOnBoard(r, c, board, player) {
   return new Promise((resolve, reject)=>{
-    checkIfMoveIsValid(r, c, board, player)
-      .then(pieces => {
-        board[r][c] = player.color;
-        claimTiles(pieces, board, player.color);
-        resolve(board);
-      })
-      .catch(()=>{
-        reject();
-      });
+    let pieces = isMoveValid(r, c, board, player);
+    if (pieces) {
+      board[r][c] = player.color;
+      claimTiles(pieces, board, player.color);
+      resolve(board);
+    }
+    else {
+      reject();
+    }
   });
 }
 
-export function checkIfMoveIsValid(r, c, board, player) {
-  return new Promise((resolve, reject)=>{
-    if (!isEmpty(board[r][c])) { //if the cell is already occupied, it's not a valid move
-      reject();
-      return;
+export function isMoveValid(r, c, board, player) {
+  if (!isEmpty(board[r][c])) { //if the cell is already occupied, it's not a valid move
+    return false;
+  }
+  let pieces = piecesToFlipForMove(r, c, board, player.color);
+  if (pieces.length) { // A move is only valid if it results in flips
+    return pieces;
+  }
+  else { // If there are no pieces to flip, reject the handler
+    //NOTE: this will throw in Chrome with "Pause on Exceptions" enabled
+    //  - this rejection is currently handled in the sole reducer calling it
+    return false;
+  }
+}
+
+//walk the board checking for all valid moves for the current plaeyer and tallying current score
+// -- if NO valid moves, the game is over!
+export function checkMovesAndScore(board, player) {
+  let score = {
+      '' : 0,
+      'red' : 0,
+      'blue' : 0
+    },
+    validMoves = {};
+
+  function updateValidMove(r, c) {
+    if (validMoves[r]) {
+      validMoves[r][c] = true;
     }
-    let pieces = piecesToFlipForMove(r, c, board, player.color);
-    if (pieces.length) { // A move is only valid if it results in flips
-      resolve(pieces);
+    else {
+      validMoves[r] = {
+        [c]: true
+      };
     }
-    else { // If there are no pieces to flip, reject the handler
-      //NOTE: this will throw in Chrome with "Pause on Exceptions" enabled
-      //  - this rejection is currently handled in the sole reducer calling it
-      reject();
-    }
+  }
+
+  board.forEach((row, r) => {
+    row.forEach((cell, c) => {
+      if (isEmpty(cell)) {
+        if (isMoveValid(r, c, board, player)) {
+          updateValidMove(r, c);
+        }
+      }
+      else {
+        score[cell]++;
+      }
+    });
   });
+
+  return {score, validMoves};
 }
 
 export function countOwnedCells(board) {

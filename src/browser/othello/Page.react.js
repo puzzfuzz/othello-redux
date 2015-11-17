@@ -24,16 +24,14 @@ export default class Othello extends Component {
     placePiece(row, column);
   }
 
-  tileHovered(row, column) {
-    const {actions:{checkTile}} = this.props;
-
-    checkTile(row, column);
+  componentDidMount() {
+    this.props.actions.updateMovesAndScore();
   }
 
   render() {
     const {msg: {othello: msg}, othello} = this.props; //player1, player2
     const _othello = othello.toJS();
-    const {board, players, currentPlayerTurn, validPossibleMove, score} = _othello;
+    const {board, players, currentPlayerTurn, validMoves, score} = _othello;
 
     const player1 = players['1'],
       player2 = players['2'];
@@ -62,9 +60,8 @@ export default class Othello extends Component {
           </div>
           <Board boardState={board}
                 currentPlayerColor={currentPlayerColor}
-                tileHovered={(r, c)=>{this.tileHovered(r, c);}}
                 tileSelected={(r, c)=>{this.selectTile(r, c);}}
-                validPossibleMove={validPossibleMove}
+                validMoves={validMoves}
                 />
         </div>
       </DocumentTitle>
