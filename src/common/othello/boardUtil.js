@@ -124,7 +124,8 @@ export function checkMovesAndScore(board, player) {
       'red' : 0,
       'blue' : 0
     },
-    validMoves = {};
+    validMoves = {},
+    gameOver = false;
 
   function updateValidMove(r, c) {
     if (validMoves[r]) {
@@ -150,7 +151,11 @@ export function checkMovesAndScore(board, player) {
     });
   });
 
-  return {score, validMoves};
+  if (Object.keys(validMoves).length === 0) {
+    gameOver = true;
+  }
+
+  return {score, validMoves, gameOver};
 }
 
 export function countOwnedCells(board) {

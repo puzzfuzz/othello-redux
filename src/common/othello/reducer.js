@@ -16,14 +16,11 @@ const INITIAL_BOARD = [
 
 const InitialState = Record({
   board: Immutable.fromJS(INITIAL_BOARD),
+  gameOver: false,
   currentPlayerTurn: 1,
   placingPiece: false,
   validMoves: {},
-  score: {
-    'red': 2,
-    'blue': 2,
-    '': 60
-  },
+  score: {},
   players: {
     1: new Player({
       id: 1,
@@ -68,10 +65,11 @@ export default function othelloReducer(state = initialState, action) {
     case actions.UPDATE_MOVES_AND_SCORE: {
       const {board, players, currentPlayerTurn} = state.toJS();
       const player = players[currentPlayerTurn];
-      const {score, validMoves} = checkMovesAndScore(board, player);
+      const {score, validMoves, gameOver} = checkMovesAndScore(board, player);
 
       state = state.set('score', score)
-                .set('validMoves', validMoves);
+                .set('validMoves', validMoves)
+                .set('gameOver', gameOver);
       break;
     }
   }

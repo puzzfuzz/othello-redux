@@ -4,6 +4,7 @@ import React, {PropTypes} from 'react';
 
 import Player from './Player.react';
 import Board from './Board.react';
+import GameOver from './GameOver.react';
 
 if (process.env.IS_BROWSER)
   require('./Page.styl');
@@ -31,7 +32,7 @@ export default class Othello extends Component {
   render() {
     const {msg: {othello: msg}, othello} = this.props; //player1, player2
     const _othello = othello.toJS();
-    const {board, players, currentPlayerTurn, validMoves, score} = _othello;
+    const {board, players, currentPlayerTurn, validMoves, score, gameOver} = _othello;
 
     const player1 = players['1'],
       player2 = players['2'];
@@ -41,7 +42,8 @@ export default class Othello extends Component {
     return (
       <DocumentTitle title={msg.title}>
         <div className="othello-page">
-          <h2>{msg.title}</h2>
+          <div>{msg.title}</div>
+          {gameOver && <GameOver score={score} />}
           <div className="pure-g">
             <div className="pure-u-1-2">
               <Player isTurn={currentPlayerTurn === player1.id}

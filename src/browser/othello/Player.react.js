@@ -10,7 +10,7 @@ export default class Othello extends Component {
     isTurn: PropTypes.bool.isRequired,
     msg: PropTypes.object,
     player: PropTypes.object.isRequired,
-    score: PropTypes.number.isRequired
+    score: PropTypes.number
   }
 
   render() {

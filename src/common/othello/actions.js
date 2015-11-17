@@ -1,4 +1,4 @@
-import {placePieceOnBoard, checkMovesAndScore} from './boardUtil';
+import {placePieceOnBoard} from './boardUtil';
 
 //player actions
 export const CREATE_PLAYER = 'CREATE_PLAYER';
