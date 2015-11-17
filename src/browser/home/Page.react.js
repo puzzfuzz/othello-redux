@@ -4,6 +4,9 @@ import React, {PropTypes} from 'react';
 import {FormattedHTMLMessage} from 'react-intl';
 import {Link} from 'react-router';
 
+if (process.env.IS_BROWSER)
+  require('./Page.styl');
+
 export default class Page extends Component {
 
   static propTypes = {
@@ -18,26 +21,16 @@ export default class Page extends Component {
     return (
       <DocumentTitle title={msg.title}>
         <div className="home-page">
+          <h1>{msg.title} <FormattedHTMLMessage defaultMessage={msg.byLine} /></h1>
+          <h3><Link activeClassName="active" to="/othello">{msg.letsPlay}</Link></h3>
+          <h3><FormattedHTMLMessage defaultMessage={msg.othelloRulesLinkHTML} /></h3>
           <p>
-            <FormattedHTMLMessage defaultMessage={msg.infoHtml} />
+            {msg.whatIsThis}
           </p>
-          <div className="tocheck">
-            <h2>{msg.toCheck.h2}</h2>
-            <ul>
-              {msg.toCheck.list.map(({key, text}) =>
-                <li key={key}>
-                  <FormattedHTMLMessage defaultMessage={text} />
-                </li>
-              )}
-              <li>
-                {msg.toCheck.isomorphicPage}{' '}
-                <Link to="/this-is-not-the-web-page-you-are-looking-for">404</Link>
-              </li>
-              <li>
-                {msg.toCheck.andMuchMore}
-              </li>
-            </ul>
-          </div>
+          <p><FormattedHTMLMessage defaultMessage={msg.interviewHTML} /></p>
+          <p>
+            <FormattedHTMLMessage defaultMessage={msg.inspiredByHTML} />
+          </p>
         </div>
       </DocumentTitle>
     );

@@ -1,7 +1,7 @@
 export default {
   app: {
     footer: {
-      madeByHtml: 'A work in progress.'
+      madeByHtml: ' '
     },
     links: {
       home: 'Home',
@@ -44,29 +44,15 @@ export default {
   home: {
     // // TODO: Android text.
     // androidInfoText: ``,
-    infoHtml: '<a href="https://github.com/este/este">Este.js</a> dev stack.',
+    inspiredByHTML: 'Heavily inspired by the wonderful boilerplate <a href="https://github.com/este/este">Este.js</a>.',
     iosInfoText: `Este.js dev stack.\n\nOpen left menu and check todos!\n\nPress CMD+R to reload.\nPress CMD+D for debug menu.`,
-    title: 'Este.js',
-    toCheck: {
-      andMuchMore: 'And much more :-)',
-      h2: 'Things to Check',
-      isomorphicPage: 'Isomorphic page',
-      // This is example of localized ordered list.
-      list: [
-        {
-          key: 'source',
-          text: 'Server rendering'
-        },
-        {
-          key: 'development',
-          text: 'Hot reload for styles, components, etc.'
-        },
-        {
-          key: 'production',
-          text: 'Performance and size of production build (<code>gulp -p</code>)'
-        }
-      ]
-    }
+    title: 'Othello-redux',
+    byLine: 'by <a href="https://github.com/puzzfuzz/othello-redux">Chris Puzzo</a>',
+    letsPlay: 'Lets Play!',
+    othelloRulesLinkHTML: '<a href="http://www.wikihow.com/Play-Othello">Rules</a>',
+    whatIsThis: `For a long time now, I have used the game Othello as my test-bed problem for trying out new tecnologies.
+                  It encorporates the perfect mix of rendering, state management, and rules logic to serve as a small, non-trivial, real-world application.`,
+    interviewHTML: 'I use a piece of this problem as part of my favorite <a href="http://jsfiddle.net/chris_puzzo/0e6xo42r/">interview question</a>.'
   },
   me: {
     title: 'Me',

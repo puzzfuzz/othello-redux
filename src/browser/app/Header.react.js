@@ -11,26 +11,11 @@ export default class Header extends Component {
   }
 
   render() {
-    // const {msg: {app: {links: msg}}, viewer} = this.props;
     const {msg: {app: {links: msg}}} = this.props;
-
-    // return (
-    //   <header className="pure-menu pure-menu-horizontal">
-    //     <Link className="pure-menu-heading pure-menu-link" to="/"><h3>{msg.home}</h3></Link>
-    //     <ul className="pure-menu-list">
-    //       <li className="pure-menu-item"><Link activeClassName="active" className="pure-menu-link" to="/todos">{msg.todos}</Link></li>
-    //       <li className="pure-menu-item"><Link activeClassName="active" className="pure-menu-link" to="/me">{msg.me}</Link></li>
-    //       {!viewer &&
-    //         <li className="pure-menu-item" ><Link activeClassName="active" className="pure-menu-link" to="/login">{msg.login}</Link></li>
-    //       }
-    //       <li className="pure-menu-item"><Link activeClassName="active" className="pure-menu-link" to="/othello">{msg.othello}</Link></li>
-    //     </ul>
-    //   </header>
-    // );
 
     return (
       <header className="pure-menu pure-menu-horizontal">
-        <Link className="pure-menu-heading pure-menu-link" to="/"><h3>{msg.home}</h3></Link>
+        <Link className="pure-menu-heading pure-menu-link" to="/"><img src="https://avatars2.githubusercontent.com/u/4961772?v=3&s=40" /></Link>
         <ul className="pure-menu-list">
           <li className="pure-menu-item"><Link activeClassName="active" className="pure-menu-link" to="/othello">{msg.othello}</Link></li>
         </ul>
