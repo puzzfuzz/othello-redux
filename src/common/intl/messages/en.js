@@ -44,15 +44,15 @@ export default {
   home: {
     // // TODO: Android text.
     // androidInfoText: ``,
-    inspiredByHTML: 'Heavily inspired by the wonderful boilerplate <a href="https://github.com/este/este">Este.js</a>.',
+    inspiredByHTML: 'Built on the shoulders of the exceptionally comprehensive boilerplate, <a href="https://github.com/este/este">Este.js</a>.',
     iosInfoText: `Este.js dev stack.\n\nOpen left menu and check todos!\n\nPress CMD+R to reload.\nPress CMD+D for debug menu.`,
     title: 'Othello-redux',
     byLine: 'by <a href="https://github.com/puzzfuzz/othello-redux">Chris Puzzo</a>',
     letsPlay: 'Lets Play!',
     othelloRulesLinkHTML: '<a href="http://www.wikihow.com/Play-Othello">Rules</a>',
     whatIsThis: `For a long time now, I have used the game Othello as my test-bed problem for trying out new tecnologies.
-                  It encorporates the perfect mix of rendering, state management, and rules logic to serve as a small, non-trivial, real-world application.`,
-    interviewHTML: 'I use a piece of this problem as part of my favorite <a href="http://jsfiddle.net/chris_puzzo/0e6xo42r/">interview question</a>.'
+                  It encorporates the right mix of rendering, state management, and rules logic to serve as a small yet non-trivial application exercising most aspects of a real-world app stack.`,
+    interviewHTML: 'Also, I use a piece of this problem as one of my favorite <a href="http://jsfiddle.net/chris_puzzo/0e6xo42r/">interview question</a>.'
   },
   me: {
     title: 'Me',

@@ -28,7 +28,7 @@ export default class Page extends Component {
             {msg.whatIsThis}
           </p>
           <p><FormattedHTMLMessage defaultMessage={msg.interviewHTML} /></p>
-          <p>
+          <p className="footer">
             <FormattedHTMLMessage defaultMessage={msg.inspiredByHTML} />
           </p>
         </div>
