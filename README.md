@@ -3,8 +3,8 @@
 [![Dependency Status](https://david-dm.org/puzzfuzz/othello-redux.svg)](https://david-dm.org/puzzfuzz/othello-redux)
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
 
-<img src="https://raw.githubusercontent.com/puzzfuzz/othello-redux/master/assets/img/Icon-76%403x.png" alt="othello-redux-icon" style="width: 40px;"/>
-# [Lets Play!](https://othello-redux.herokuapp.com/)
+## [Lets Play!](https://othello-redux.herokuapp.com/)
+<img src="https://raw.githubusercontent.com/puzzfuzz/othello-redux/master/assets/img/Icon-76.png" alt="othello-redux-icon" style="width: 40px;"/>
 
 [Othello Rules](http://www.wikihow.com/Play-Othello)
 
