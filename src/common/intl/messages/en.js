@@ -46,7 +46,7 @@ export default {
     // androidInfoText: ``,
     inspiredByHTML: 'Built on the shoulders of the exceptionally comprehensive boilerplate, <a href="https://github.com/este/este">Este.js</a>.',
     iosInfoText: `Este.js dev stack.\n\nOpen left menu and check todos!\n\nPress CMD+R to reload.\nPress CMD+D for debug menu.`,
-    title: 'othello-redux',
+    title: 'Othello-redux',
     githubLink: '<a href="https://github.com/puzzfuzz/othello-redux">othello-redux</a>',
     byLine: 'by Chris Puzzo',
     letsPlay: 'Lets Play!',
