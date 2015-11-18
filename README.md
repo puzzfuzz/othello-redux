@@ -3,7 +3,7 @@
 [![Dependency Status](https://david-dm.org/puzzfuzz/othello-redux.svg)](https://david-dm.org/puzzfuzz/othello-redux)
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
 
-[Rules](http://www.wikihow.com/Play-Othello)
+[Othello Rules](http://www.wikihow.com/Play-Othello)
 
 For a long time now, I have used the game Othello as my test-bed problem for trying out new technologies. It incorporates the right mix of rendering, state management, and rules logic to serve as a small yet non-trivial application exercising most aspects of a real-world app stack.
 
@@ -23,6 +23,7 @@ I use a piece of this problem as one of my favorite [interview question](http://
 - [React Native](https://facebook.github.io/react-native/)
 - Server APIs to store game state and process moves
 - Add some flashiness and flare
+- Remove "Todo app" sample / boilerplate code
 
 ## Prerequisites
 
