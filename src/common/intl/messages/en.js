@@ -50,9 +50,51 @@ export default {
     byLine: 'by <a href="https://github.com/puzzfuzz/othello-redux">Chris Puzzo</a>',
     letsPlay: 'Lets Play!',
     othelloRulesLinkHTML: '<a href="http://www.wikihow.com/Play-Othello">Rules</a>',
-    whatIsThis: `For a long time now, I have used the game Othello as my test-bed problem for trying out new tecnologies.
-                  It encorporates the right mix of rendering, state management, and rules logic to serve as a small yet non-trivial application exercising most aspects of a real-world app stack.`,
-    interviewHTML: 'Also, I use a piece of this problem as one of my favorite <a href="http://jsfiddle.net/chris_puzzo/0e6xo42r/">interview question</a>.'
+    whatIsThis: `For a long time now, I have used the game Othello as my test-bed problem for trying out new technologies.
+                  It incorporates the right mix of rendering, state management, and rules logic to serve as a small yet non-trivial application exercising most aspects of a real-world app stack.`,
+    interviewHTML: 'I use a piece of this problem as one of my favorite <a href="http://jsfiddle.net/chris_puzzo/0e6xo42r/">interview question</a>.',
+    techUsed: {
+      h2: 'Tech used in this project',
+      list: [
+        {
+          key: 'es6',
+          text: '<a href="http://es6-features.org/">ES6</a>'
+        },
+        {
+          key: 'react',
+          text: '<a href="https://facebook.github.io/react/">React</a>, <a href="https://github.com/rackt/redux">Redux</a>, <a href="https://facebook.github.io/immutable-js/">Immutable.js</a>, and a bunch of other components'
+        },
+        {
+          key: 'css',
+          text: '<a href="https://learnboost.github.io/stylus/">Stylus</a>, <a href="http://purecss.io/">Pure.css</a>'
+        },
+        {
+          key: 'build',
+          text: '<a href="http://gulpjs.com/">Gulp</a>, <a href="https://webpack.github.io/">Webpack</a>, hot-reload, etc.'
+        },
+        {
+          key: 'server',
+          text: '<a href="https://nodejs.org/en/">Node</a> with <a href="http://expressjs.com/">Express</a> and a dash of isomorphic'
+        },
+      ]
+    },
+    todo: {
+      h2: 'TODO',
+      list: [
+        {
+          key: 'react-native',
+          text: '<a href="https://facebook.github.io/react-native/">React Native</a>'
+        },
+        {
+          key: 'server-api',
+          text: 'Server APIs to store game state and process moves'
+        },
+        {
+          key: 'style',
+          text: 'Add some flashiness and flare'
+        }
+      ]
+    },
   },
   me: {
     title: 'Me',

@@ -28,6 +28,22 @@ export default class Page extends Component {
             {msg.whatIsThis}
           </p>
           <p><FormattedHTMLMessage defaultMessage={msg.interviewHTML} /></p>
+          <h2>{msg.techUsed.h2}</h2>
+          <ul>
+            {msg.techUsed.list.map(({key, text}) =>
+                <li key={key}>
+                  <FormattedHTMLMessage defaultMessage={text} />
+                </li>
+              )}
+          </ul>
+          <h2>{msg.todo.h2}</h2>
+          <ul>
+            {msg.todo.list.map(({key, text}) =>
+                <li key={key}>
+                  <FormattedHTMLMessage defaultMessage={text} />
+                </li>
+              )}
+          </ul>
           <p className="footer">
             <FormattedHTMLMessage defaultMessage={msg.inspiredByHTML} />
           </p>
