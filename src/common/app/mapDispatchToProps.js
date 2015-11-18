@@ -1,13 +1,9 @@
-import * as authActions from '../auth/actions';
-import * as todosActions from '../todos/actions';
 import * as uiActions from '../ui/actions';
 import * as othelloActions from '../othello/actions';
 import {Map} from 'immutable';
 import {bindActionCreators} from 'redux';
 
 const actions = [
-  authActions,
-  todosActions,
   uiActions,
   othelloActions
 ];
