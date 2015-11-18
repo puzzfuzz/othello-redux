@@ -5,9 +5,6 @@ export default {
     },
     links: {
       home: 'Home',
-      login: 'Login',
-      me: 'Me (protected)',
-      todos: 'Todos',
       othello: 'Othello'
     }
   },
@@ -45,7 +42,6 @@ export default {
     // // TODO: Android text.
     // androidInfoText: ``,
     inspiredByHTML: 'Built on the shoulders of the exceptionally comprehensive boilerplate, <a href="https://github.com/este/este">Este.js</a>.',
-    iosInfoText: `Este.js dev stack.\n\nOpen left menu and check todos!\n\nPress CMD+R to reload.\nPress CMD+D for debug menu.`,
     title: 'Othello-redux',
     githubLink: '<a href="https://github.com/puzzfuzz/othello-redux">othello-redux</a>',
     byLine: 'by Chris Puzzo',
@@ -106,19 +102,6 @@ export default {
     header: 'This page isn\'t available',
     message: 'The link may be broken, or the page may have been removed.',
     title: 'Page Not Found'
-  },
-  todos: {
-    add100: 'Add 100 Todos',
-    clearAll: 'Clear All',
-    clearCompleted: 'Clear Completed',
-    empty: `It's rather empty here...`,
-    leftList: `{size, plural,
-      =0 {Nothing, enjoy}
-      one {You are almost done}
-      other {You have {size} tasks to go}
-    }`,
-    newTodoPlaceholder: 'What needs to be done?',
-    title: 'Todos'
   },
   profile: {
     title: 'Profile'
