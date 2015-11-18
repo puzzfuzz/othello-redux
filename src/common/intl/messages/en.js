@@ -46,8 +46,8 @@ export default {
     // androidInfoText: ``,
     inspiredByHTML: 'Built on the shoulders of the exceptionally comprehensive boilerplate, <a href="https://github.com/este/este">Este.js</a>.',
     iosInfoText: `Este.js dev stack.\n\nOpen left menu and check todos!\n\nPress CMD+R to reload.\nPress CMD+D for debug menu.`,
-    title: 'Othello-redux',
-    byLine: 'by <a href="https://github.com/puzzfuzz/othello-redux">Chris Puzzo</a>',
+    title: '<a href="https://github.com/puzzfuzz/othello-redux">othello-redux</a>',
+    byLine: 'by Chris Puzzo',
     letsPlay: 'Lets Play!',
     othelloRulesLinkHTML: '<a href="http://www.wikihow.com/Play-Othello">Rules</a>',
     whatIsThis: `For a long time now, I have used the game Othello as my test-bed problem for trying out new technologies.
