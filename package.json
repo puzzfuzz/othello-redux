@@ -1,10 +1,9 @@
 {
-  "name": "Este",
+  "name": "Othello-redux",
   "authors": [
-    "Daniel Steigerwald",
-    "Mike Grabowski"
+    "Chris Puzzo"
   ],
-  "description": "Dev stack and starter kit for React universal web apps",
+  "description": "Implementation of Othello using React and Redux",
   "private": true,
   "scripts": {
     "postinstall": "gulp build --production",

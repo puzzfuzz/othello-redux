@@ -117,12 +117,14 @@ export default function makeConfig(isDevelopment) {
         }),
         new webpack.optimize.DedupePlugin(),
         new webpack.optimize.OccurenceOrderPlugin(),
-        new webpack.optimize.UglifyJsPlugin({
-          compress: {
-            screw_ie8: true, // eslint-disable-line camelcase
-            warnings: false // Because uglify reports irrelevant warnings.
-          }
-        })
+        // -- uglify currently has problems with some ES6 features (namesly for-of)
+        //    see: https://github.com/mishoo/UglifyJS2/issues/448
+        // new webpack.optimize.UglifyJsPlugin({
+        //   compress: {
+        //     screw_ie8: true, // eslint-disable-line camelcase
+        //     warnings: false // Because uglify reports irrelevant warnings.
+        //   }
+        // })
       );
       return plugins;
     })(),

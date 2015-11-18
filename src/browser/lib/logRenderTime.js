@@ -15,7 +15,7 @@ export default function logRenderTime(BaseComponent) {
 
     componentDidUpdate() {
       const total = Date.now() - this.start;
-      console.log(`[ESTE] logRenderTime: ${total}ms`); // eslint-disable-line no-console, no-undef
+      console.log(`[Othello-redux] logRenderTime: ${total}ms`); // eslint-disable-line no-console, no-undef
     }
 
     render() {
@@ -25,6 +25,3 @@ export default function logRenderTime(BaseComponent) {
   };
 
 }
-
-
-
