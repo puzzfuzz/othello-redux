@@ -50,6 +50,4 @@ npm install
 
 ## Credit
 
-<img alt="Este.js" src="https://cloud.githubusercontent.com/assets/66249/6515278/de638916-c388-11e4-8754-184f5b11e770.jpeg" width="200">
-
-made by Daniel Steigerwald, [twitter.com/steida](https://twitter.com/steida), @grabbou and the community
+Built on the shoulders of the exceptionally comprehensive boilerplate, [Este.js](https://github.com/este/este).
