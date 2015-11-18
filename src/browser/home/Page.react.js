@@ -21,7 +21,7 @@ export default class Page extends Component {
     return (
       <DocumentTitle title={msg.title}>
         <div className="home-page">
-          <h1>{msg.title} <FormattedHTMLMessage defaultMessage={msg.byLine} /></h1>
+          <h1><FormattedHTMLMessage defaultMessage={msg.title} />{' '}<FormattedHTMLMessage defaultMessage={msg.byLine} /></h1>
           <h3><Link activeClassName="active" to="/othello">{msg.letsPlay}</Link></h3>
           <h3><FormattedHTMLMessage defaultMessage={msg.othelloRulesLinkHTML} /></h3>
           <p>
