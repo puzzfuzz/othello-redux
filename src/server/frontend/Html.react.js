@@ -43,6 +43,8 @@ ga('create', '${googleAnalyticsId}', 'auto'); ga('send', 'pageview');`}}
           <title>{title}</title>
           {linkStyles}
           {analytics}
+          <link href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css" rel="stylesheet" />
+          <link href="http://yui.yahooapis.com/pure/0.6.0/grids-responsive-min.css" rel="stylesheet" />
         </head>
         <body dangerouslySetInnerHTML={{__html: bodyHtml}} />
       </html>
