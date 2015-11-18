@@ -2,15 +2,21 @@ import compression from 'compression';
 import device from 'express-device';
 import esteMiddleware from '../lib/esteMiddleware';
 import express from 'express';
-// import favicon from 'serve-favicon';
+import favicon from 'serve-favicon';
 import render from './render';
+import config from '../config';
+
+const path = require('path');
 
 const app = express();
 
 app.use(esteMiddleware());
 app.use(compression());
 
-// app.use(favicon('assets/img/favicon.ico'));
+const assetsDir = path.join(config.basePath, 'assets');
+app.use('/img', express.static(path.join(assetsDir, 'img'), {maxAge: '200d'}));
+
+app.use(favicon('assets/img/favicon.ico'));
 
 // Serve the static assets. We can cache them as they include hashes.
 app.use('/assets/img', express.static('../assets/img', {maxAge: '200d'}));

@@ -1,5 +1,6 @@
 const hashFile = require('hash-file');
 const nconf = require('nconf');
+const path = require('path');
 
 const isProduction = process.env.NODE_ENV === 'production';
 
@@ -19,6 +20,7 @@ function getAssetHash(filePath) {
 
 // Remember, never put production secrets in config. Use nconf.
 const config = {
+  basePath: path.normalize(path.join(__dirname, '../..')),
   assetsHashes: {
     appCss: getAssetHash('build/app.css'),
     appJs: getAssetHash('build/app.js')
