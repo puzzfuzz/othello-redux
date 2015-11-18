@@ -31,14 +31,15 @@ m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
 })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 ga('create', '${googleAnalyticsId}', 'auto'); ga('send', 'pageview');`}}
       />;
+      //
+      // <link href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css" rel="stylesheet" />
+      // <link href="http://yui.yahooapis.com/pure/0.6.0/grids-responsive-min.css" rel="stylesheet" />
 
     return (
       <html lang="en">
         <head>
           <meta charSet="utf-8" />
           <meta content="width=device-width, initial-scale=1" name="viewport" />
-          <link href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css" rel="stylesheet" />
-          <link href="http://yui.yahooapis.com/pure/0.6.0/grids-responsive-min.css" rel="stylesheet" />
           <title>{title}</title>
           {linkStyles}
           {analytics}
