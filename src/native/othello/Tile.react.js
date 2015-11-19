@@ -35,10 +35,15 @@ export default class Tile extends Component {
 //     <Piece isEmpty={isEmpty} owner={owner} />
 //   </View>
 // </Button>
+
     if (isEmpty) {
       return (
         <View style={[pageStyles.tile]} >
-          <Piece isEmpty={isEmpty} owner={owner} selected={()=>this.tileSelected()}/>
+          <Piece currentPlayerColor={currentPlayerColor}
+            isEmpty={isEmpty}
+            isValidMove={validMove}
+            owner={owner}
+            selected={()=>this.tileSelected()} />
         </View>
       );
     }

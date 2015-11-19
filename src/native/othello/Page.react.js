@@ -21,6 +21,10 @@ export default class Page extends Component {
     placePiece(row, column);
   }
 
+  componentDidMount() {
+    this.props.actions.updateMovesAndScore();
+  }
+
   render() {
     const {msg: {native: {othello: msg}}, othello} = this.props;
     const {board, players, currentPlayerTurn, validMoves, score, gameOver} = othello.toJS();
@@ -29,6 +33,7 @@ export default class Page extends Component {
       player2 = players['2'];
 
     const currentPlayerColor = players[currentPlayerTurn].color;
+
 
     return (
       <PageView >

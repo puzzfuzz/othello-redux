@@ -30,4 +30,14 @@ export default StyleSheet.create({
   pieceEmpty: {
     backgroundColor: 'white'
   },
+  validMove: {
+    shadowOpacity: 0.6,
+    shadowRadius: 5
+  },
+  redValidMove: {
+    shadowColor: 'red'
+  },
+  blueValidMove: {
+    shadowColor: 'blue'
+  }
 });
