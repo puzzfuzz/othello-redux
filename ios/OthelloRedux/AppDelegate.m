@@ -42,7 +42,7 @@
 //   jsCodeLocation = [[NSBundle mainBundle] URLForResource:@"main" withExtension:@"jsbundle"];
 
   RCTRootView *rootView = [[RCTRootView alloc] initWithBundleURL:jsCodeLocation
-                                                      moduleName:@"Este"
+                                                      moduleName:@"OthelloRedux"
                                                initialProperties:nil
                                                    launchOptions:launchOptions];
 

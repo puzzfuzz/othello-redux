@@ -38,6 +38,6 @@ export default function index(platform) {
     }
   }
 
-  AppRegistry.registerComponent('Este', () => Root);
+  AppRegistry.registerComponent('OthelloRedux', () => Root);
 
 }

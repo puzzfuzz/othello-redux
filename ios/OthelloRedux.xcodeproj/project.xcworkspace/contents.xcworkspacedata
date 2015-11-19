@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:">
+      location = "self:/Users/Chris/Dev/othello-redux/ios/OthelloRedux.xcodeproj">
    </FileRef>
 </Workspace>
