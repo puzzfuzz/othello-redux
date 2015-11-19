@@ -20,5 +20,9 @@ export default StyleSheet.create({
   sceneView: {
     backgroundColor: '#fff',
     flex: 1
+  },
+  pageView: {
+    backgroundColor: '#fff',
+    margin: 10
   }
 });

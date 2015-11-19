@@ -112,5 +112,10 @@ export default {
   othello: {
     title:'Othello',
     player: 'Player',
+  },
+  native: {
+    othello: {
+      title: 'Othello-redux'
+    }
   }
 };

@@ -31,8 +31,7 @@ export default class Othello extends Component {
 
   render() {
     const {msg: {othello: msg}, othello} = this.props; //player1, player2
-    const _othello = othello.toJS();
-    const {board, players, currentPlayerTurn, validMoves, score, gameOver} = _othello;
+    const {board, players, currentPlayerTurn, validMoves, score, gameOver} = othello.toJS();
 
     const player1 = players['1'],
       player2 = players['2'];

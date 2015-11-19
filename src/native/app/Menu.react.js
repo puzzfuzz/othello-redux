@@ -44,7 +44,7 @@ export default class Menu extends Component {
 
   render() {
     const {msg: {app: {links}}, onRouteChange} = this.props;
-    const pages = ['home'];
+    const pages = ['home', 'othello'];
 
     return (
       <ScrollView
