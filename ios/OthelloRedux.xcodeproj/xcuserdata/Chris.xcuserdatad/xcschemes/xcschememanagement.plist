@@ -4,10 +4,10 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>Este.xcscheme_^#shared#^_</key>
+		<key>OthelloRedux.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>0</integer>
+			<integer>1</integer>
 		</dict>
 		<key>OthelloRedux.xcscheme_^#shared#^_</key>
 		<dict>
